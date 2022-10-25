@@ -77,7 +77,7 @@ createNavbar();
 function makeSectionActive() {
   allSections.forEach((section) => {
     if (onViewport(section)) {
-      console.log(`${section.dataset.nav} is on view point`);
+      // console.log(`${section.dataset.nav} is on view point`);
       addActiveClass(section);
       navbarList.querySelectorAll("li").forEach((li) => {
         if (li.textContent === section.dataset.nav) {
@@ -87,7 +87,7 @@ function makeSectionActive() {
         }
       });
     } else if (!onViewport(section)) {
-      console.log(`${section.dataset.nav} is not on view point`);
+      // console.log(`${section.dataset.nav} is not on view point`);
       removeActiveClass(section);
       navbarList.querySelectorAll("li").forEach((li) => {
         if (li.textContent === section.dataset.nav) {

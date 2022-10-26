@@ -38,7 +38,7 @@ function createNavbar() {
   allSections.forEach((section) => {
     sections.push(section.dataset.nav);
     const liElem = document.createElement("li");
-    liElem.innerHTML = `<a class="menu__link" href="#${section.id}">${section.dataset.nav}</a>`;
+    liElem.innerHTML = `<a class="menu__link">${section.dataset.nav}</a>`;
     navbarList.append(liElem);
   });
 }
@@ -99,6 +99,18 @@ function makeSectionActive() {
     }
   });
 }
+
+function scrollToElement(element) {
+  const destination = element.textContent.replace(/\s/g, "").toLowerCase();
+  document.getElementById(destination).scrollIntoView({ behavior: "smooth" });
+}
+
+document.querySelectorAll(".menu__link").forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    scrollToElement(link);
+  });
+});
 
 //Adding Scroll Event Listener to run makeSectionActive function on scrolling.
 document.addEventListener("scroll", (e) => {
